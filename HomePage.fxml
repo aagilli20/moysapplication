@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" minHeight="560.0" prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="moysapplication.HomePageController">
+  <children>
+    <GridPane prefHeight="56.0" prefWidth="787.0" AnchorPane.leftAnchor="6.5" AnchorPane.rightAnchor="6.5" AnchorPane.topAnchor="8.0">
+      <children>
+        <ImageView fitHeight="49.900001525878906" fitWidth="226.81818068646407" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+          <Image url="@logo.png" preserveRatio="false" smooth="false" />
+          <GridPane.margin>
+            <Insets fx:id="x114" />
+          </GridPane.margin>
+        </ImageView>
+        <Hyperlink id="logout" onAction="#processLogout" text="Salir" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets right="2.0" />
+          </GridPane.margin>
+        </Hyperlink>
+        <ImageView fx:id="imgTelOnOff" fitHeight="46.0" fitWidth="92.0" onMouseClicked="#proccesChangePhoneState" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+          <GridPane.margin>
+            <Insets bottom="7.0" />
+          </GridPane.margin>
+        </ImageView>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Label alignment="CENTER" prefWidth="407.0" text="Dirección General de Planificación y Coordinación de Proyectos" textAlignment="CENTER" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+    <Label alignment="CENTER" prefWidth="316.0" text="Sistema Interno - (0342)450-6600 Interno 2136" textAlignment="CENTER" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+    <AnchorPane prefHeight="436.0" prefWidth="800.0" styleClass="inter-segment" AnchorPane.bottomAnchor="64.05" AnchorPane.leftAnchor="-1.5" AnchorPane.rightAnchor="1.5" AnchorPane.topAnchor="60.95">
+      <children>
+        <TabPane fx:id="tabPaneGeneral" prefHeight="-1.0" prefWidth="-1.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <tabs>
+            <Tab text="Establecimientos">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-pane-segment">
+                  <children>
+                    <GridPane prefHeight="60.0" prefWidth="781.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                      <children>
+                        <Label styleClass="label-datos" text="Nro. Org." textAlignment="LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label styleClass="label-datos" text="Cod. Juris." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label styleClass="label-datos" text="Nombre" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Label styleClass="label-datos" text="Región" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                        <Label styleClass="label-datos" text="CUE" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                        <Label styleClass="label-datos" text="Anexo" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                        <Button fx:id="botonBuscar" mnemonicParsing="false" onAction="#processBuscar" styleClass="small-button" text="Buscar" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="0">
+                          <GridPane.margin>
+                            <Insets bottom="1.0" left="2.0" right="2.0" top="2.0" />
+                          </GridPane.margin>
+                        </Button>
+                        <Button fx:id="botonLimpiar" mnemonicParsing="false" onAction="#cleanForm" styleClass="small-button" text="Limpiar" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets bottom="2.0" left="2.0" right="2.0" top="1.0" />
+                          </GridPane.margin>
+                        </Button>
+                        <TextField fx:id="textNroOrg" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets right="2.0" />
+                          </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="textCodJuris" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets left="2.0" right="2.0" fx:id="x1" />
+                          </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="textNombre" prefWidth="200.0" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textCUE" prefWidth="200.0" GridPane.columnIndex="5" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textAnexo" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets left="2.0" fx:id="x28" />
+                          </GridPane.margin>
+                        </TextField>
+                        <ComboBox fx:id="selectRegional" prefWidth="99.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets fx:id="x20" />
+                          </GridPane.margin>
+                        </ComboBox>
+                        <Label styleClass="label-datos" text="Localidad" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                        <TextField fx:id="textLocalidad" prefWidth="200.0" GridPane.columnIndex="4" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <GridPane prefHeight="170.0" prefWidth="736.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="70.0">
+                      <children>
+                        <ListView fx:id="listResultados" prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                          <GridPane.margin>
+                            <Insets right="2.0" />
+                          </GridPane.margin>
+                        </ListView>
+                        <Accordion GridPane.columnIndex="1" GridPane.rowIndex="0">
+                          <expandedPane>
+                            <TitledPane fx:id="x3" animated="false" text="Datos del Establecimiento">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <GridPane AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                                      <children>
+                                        <Label styleClass="label-datos" text="Tipo de Organismo:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <GridPane.margin>
+                                            <Insets bottom="1.0" left="2.0" top="1.0" fx:id="x2" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label styleClass="label-datos" text="Gestión:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                                        <Label styleClass="label-datos" text="Domicilio:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                                        <Label styleClass="label-datos" text="Centrex:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="4" />
+                                        <Label styleClass="label-datos" text="Nodo:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="7" />
+                                        <Label styleClass="label-datos" text="Departamento:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="6" />
+                                        <Label fx:id="labelTipoOrganismo" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                                        <Label fx:id="labelGestion" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelDomicilio" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                                        <Label styleClass="label-datos" text="Teléfono:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                                        <Label fx:id="labelTelefono" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                                        <Label fx:id="labelCentrex" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="4" />
+                                        <Label styleClass="label-datos" text="Correo Electrónico:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="5" />
+                                        <Label fx:id="labelEmail" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="5" />
+                                        <Label fx:id="labelDepartamento" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="6" />
+                                        <Label fx:id="labelNodo" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="7" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="12.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="13.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </expandedPane>
+                          <panes>
+                            <fx:reference source="x3" />
+                            <TitledPane fx:id="x4" animated="false" text="Director y Supervisores">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <TableView fx:id="tableDirectorSupervisor" prefHeight="84.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn id="columnCargo" prefWidth="75.0" text="Cargo" fx:id="columnCargo" />
+                                        <TableColumn id="columnSitRevista" prefWidth="75.0" text="Sit. de Revista" fx:id="columnSitRevista" />
+                                        <TableColumn id="columnDocumento" prefWidth="75.0" text="Documento" fx:id="columnDocumento" />
+                                        <TableColumn id="columnNombreApellido" prefWidth="75.0" text="Nombre y Apellido" fx:id="columnNombreApellido" />
+                                      </columns>
+                                    </TableView>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" expanded="false" text="Información de Sigae WEB">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <GridPane AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+                                      <children>
+                                        <Label styleClass="label-datos" text="Tiene Sigae WEB:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                                        <Label styleClass="label-datos" text="Está activo:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                                        <Label styleClass="label-datos" text="Ultima actualización Vista Materializada:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                                        <Label styleClass="label-datos" text="Cargó Estructura Curricular:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                                        <Label styleClass="label-datos" text="Cargos Frente al aula:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="4" />
+                                        <Label styleClass="label-datos" text="Plazas conformadas:" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="5" />
+                                        <Label fx:id="labelTieneSigae" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                                        <Label fx:id="labelActivo" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                                        <Label fx:id="labelFechaActuVista" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                                        <Label fx:id="labelCargoEstCurricular" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                                        <Label fx:id="labelCargosFrenteAula" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="4" />
+                                        <Label fx:id="labelPlazas" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="5" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="17.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                          <GridPane.margin>
+                            <Insets left="2.0" fx:id="x21" />
+                          </GridPane.margin>
+                        </Accordion>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="772.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="250.0">
+                      <children>
+                        <TabPane fx:id="tabPaneEscuela" prefHeight="123.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                            <Tab text="Tickets en Curso">
+                              <content>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                  <children>
+                                    <TableView fx:id="tableTickets" disable="false" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn id="columnIdTicket" prefWidth="75.0" text="Id Ticket" fx:id="columnIdTicket" />
+                                        <TableColumn id="columnTema" prefWidth="75.0" text="Tema" fx:id="columnTema" />
+                                        <TableColumn id="columnSubtema" prefWidth="75.0" text="Subtema" fx:id="columnSubtema" />
+                                        <TableColumn id="columnConsulta" prefWidth="75.0" text="Consulta" fx:id="columnConsulta" />
+                                        <TableColumn id="columnFechaCreacion" prefWidth="75.0" text="Fecha Alta" fx:id="columnFechaCreacion" />
+                                        <TableColumn id="columnFechaActualizacion" prefWidth="75.0" text="Ultima Actualización" fx:id="columnFechaActualizacion" />
+                                      </columns>
+                                    </TableView>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Matrícula">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <Accordion AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <expandedPane>
+                                        <TitledPane fx:id="x9" animated="false" text="Actual por Carrera">
+                                          <content>
+                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                <TableView fx:id="tableMAPC" prefHeight="93.0" prefWidth="572.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="Ciclo" fx:id="columnMAPCCicloLectivo" />
+                                                    <TableColumn prefWidth="75.0" text="Nivel" fx:id="columnMAPCNivel" />
+                                                    <TableColumn prefWidth="75.0" text="Carrera" fx:id="columnMAPCCarrera" />
+                                                    <TableColumn prefWidth="75.0" text="Secciones" fx:id="columnMAPCSeccion" />
+                                                    <TableColumn prefWidth="75.0" text="Alumnos" fx:id="columnMAPCAlumno" />
+                                                    <TableColumn prefWidth="75.0" text="Matrícula" fx:id="columnMAPCMatricula" />
+                                                  </columns>
+                                                </TableView>
+                                                <Pane prefHeight="23.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
+                                                  <children>
+                                                    <Button contentDisplay="LEFT" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#processLoadMatriculaActualPorCarrera" prefHeight="-1.0" prefWidth="-1.0" styleClass="small-button" text="Cargar" textAlignment="LEFT" />
+                                                  </children>
+                                                  <padding>
+                                                    <Insets fx:id="x121" />
+                                                  </padding>
+                                                </Pane>
+                                              </children>
+                                            </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                      </expandedPane>
+                                      <panes>
+                                        <fx:reference source="x9" />
+                                        <TitledPane animated="false" text="Evolución de la Matrícula">
+                                          <content>
+                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                <TableView fx:id="tableHM" prefHeight="93.0" prefWidth="572.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="Ciclo" fx:id="columnHMCicloLectivo" />
+                                                    <TableColumn prefWidth="75.0" text="Sección" fx:id="columnHMSeccion" />
+                                                    <TableColumn prefWidth="75.0" text="Alumnos" fx:id="columnHMAlumno" />
+                                                    <TableColumn prefWidth="75.0" text="Matricula" fx:id="columnHMMatricula" />
+                                                  </columns>
+                                                </TableView>
+                                                <Pane prefHeight="23.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
+                                                  <children>
+                                                    <Button layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#processLoadHistoricoMarticula" prefHeight="-1.0" prefWidth="-1.0" styleClass="small-button" text="Cargar" />
+                                                  </children>
+                                                </Pane>
+                                              </children>
+                                            </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane fx:id="x10" animated="false" expanded="false" text="Alumnos activos en ciclos lectivos anteriores">
+                                          <content>
+                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                <TableView fx:id="tableMACA" prefHeight="93.0" prefWidth="572.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="Ciclo" fx:id="columnMACACicloLectivo" />
+                                                    <TableColumn prefWidth="75.0" text="Carrera" fx:id="columnMACACarrera" />
+                                                    <TableColumn prefWidth="75.0" text="Año" fx:id="columnMACAAnioEstudio" />
+                                                    <TableColumn prefWidth="75.0" text="Sección" fx:id="columnMACASeccion" />
+                                                    <TableColumn prefWidth="75.0" text="Alumno" fx:id="columnMACAAlumno" />
+                                                    <TableColumn prefWidth="75.0" text="Documento" fx:id="columnMACADocumento" />
+                                                    <TableColumn prefWidth="75.0" text="Sexo" fx:id="columnMACASexo" />
+                                                  </columns>
+                                                </TableView>
+                                                <Pane prefHeight="23.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
+                                                  <children>
+                                                    <Button layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#processLoadAlumnosActCiclosAnt" prefHeight="-1.0" prefWidth="-1.0" styleClass="small-button" text="Cargar" />
+                                                  </children>
+                                                </Pane>
+                                              </children>
+                                            </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Títulos">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <GridPane alignment="TOP_LEFT" gridLinesVisible="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                      <children>
+                                        <Label styleClass="label-datos" text="Director autorizado:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x72" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label styleClass="label-datos" text="Código de autorización:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x99" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label styleClass="label-datos" text="PIN:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x100" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelTituloCantTitulosImp2" styleClass="label-datos" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x101" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelTituloCantTitulosImp1" styleClass="label-datos" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x102" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label styleClass="label-datos" text="Cant. Alumnos con egerso pendiente en Ciclos Anteriores:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x103" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelDirectorAutorizado" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                          <GridPane.margin>
+                                            <Insets fx:id="x32" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelCodigoAutorizacion" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <GridPane.margin>
+                                            <Insets fx:id="x116" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelPIN" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <GridPane.margin>
+                                            <Insets fx:id="x117" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label id="labeloCantTitulosImp2" fx:id="labelCantTitulosImp2" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <GridPane.margin>
+                                            <Insets fx:id="x118" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelCantActivos5y6CiclosAnt" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <GridPane.margin>
+                                            <Insets fx:id="x119" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelCantTitulosImp1" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <GridPane.margin>
+                                            <Insets fx:id="x120" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" onAction="#processLoadAlumnosActCiclosAnt" styleClass="small-button" text="Cargar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                          <GridPane.margin>
+                                            <Insets right="8.0" />
+                                          </GridPane.margin>
+                                        </Button>
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="SARH">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <children>
+                                        <GridPane minHeight="36.0">
+                                          <children>
+                                            <Label styleClass="label-datos" text="Usuario VPN:" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0">
+                                              <GridPane.margin>
+                                                <Insets left="4.0" fx:id="x29" />
+                                              </GridPane.margin>
+                                            </Label>
+                                            <Label styleClass="label-datos" text="Usuarios SARH" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                              <GridPane.margin>
+                                                <Insets left="4.0" fx:id="x30" />
+                                              </GridPane.margin>
+                                            </Label>
+                                            <Label fx:id="labelUsuarioVPN" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                              <GridPane.margin>
+                                                <Insets left="2.0" fx:id="$x11" />
+                                              </GridPane.margin>
+                                            </Label>
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <TableView fx:id="tableUserSARH" prefHeight="200.0" prefWidth="200.0">
+                                          <columns>
+                                            <TableColumn id="columnUsuario" prefWidth="75.0" text="Usuario" fx:id="columnUsuario" />
+                                            <TableColumn id="columnNombreApellido" prefWidth="75.0" text="Nombre y Apellido" fx:id="columnNombreApellidoSARH" />
+                                            <TableColumn id="columnDocumento" prefWidth="75.0" text="Documento" fx:id="columnDocumentoSARH" />
+                                            <TableColumn id="columnFechaAlta" prefWidth="75.0" text="Fecha Alta" fx:id="columnFechaAlta" />
+                                            <TableColumn id="columnFechaBaja" prefWidth="75.0" text="Fecha Baja" fx:id="columnFechaBaja" />
+                                          </columns>
+                                        </TableView>
+                                      </children>
+                                    </VBox>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Comedores">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <children>
+                                        <HBox minHeight="26.0" prefHeight="-1.0" prefWidth="-1.0">
+                                          <children>
+                                            <Label styleClass="label-datos" text="Est. Beneficiado:">
+                                              <HBox.margin>
+                                                <Insets left="4.0" right="4.0" top="4.0" />
+                                              </HBox.margin>
+                                            </Label>
+                                            <Label fx:id="labelEstBeneficiado" styleClass="label-datos" text="Label">
+                                              <HBox.margin>
+                                                <Insets left="6.0" right="2.0" top="4.0" />
+                                              </HBox.margin>
+                                            </Label>
+                                          </children>
+                                          <VBox.margin>
+                                            <Insets fx:id="x23" />
+                                          </VBox.margin>
+                                        </HBox>
+                                        <HBox minHeight="26.0" prefHeight="-1.0" prefWidth="-1.0">
+                                          <children>
+                                            <Label styleClass="label-datos" text="Est. Asistente:">
+                                              <HBox.margin>
+                                                <Insets bottom="2.0" left="4.0" right="4.0" top="4.0" />
+                                              </HBox.margin>
+                                            </Label>
+                                            <Label fx:id="labelEstAsistente" styleClass="label-datos" text="Label">
+                                              <HBox.margin>
+                                                <Insets bottom="2.0" left="22.0" right="4.0" top="4.0" />
+                                              </HBox.margin>
+                                            </Label>
+                                          </children>
+                                          <VBox.margin>
+                                            <Insets fx:id="x26" />
+                                          </VBox.margin>
+                                        </HBox>
+                                        <TableView fx:id="tableComedor" prefHeight="-1.0" prefWidth="-1.0">
+                                          <columns>
+                                            <TableColumn prefWidth="75.0" text="Concepto" fx:id="columnConcepto" />
+                                            <TableColumn prefWidth="75.0" text="Desayuno" fx:id="columnDesayuno" />
+                                            <TableColumn prefWidth="75.0" text="Almuerzo" fx:id="columnAlmuerzo" />
+                                            <TableColumn prefWidth="75.0" text="Merienda" fx:id="columnMerienda" />
+                                            <TableColumn prefWidth="75.0" text="Cena" fx:id="columnCena" />
+                                          </columns>
+                                          <VBox.margin>
+                                            <Insets fx:id="x27" />
+                                          </VBox.margin>
+                                        </TableView>
+                                      </children>
+                                    </VBox>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Inconsistencias REDFIE">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <TableView fx:id="tableREDFIE" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Descripción" fx:id="columnDescripcion" />
+                                        <TableColumn prefWidth="75.0" text="Observación" fx:id="columnObservacion" />
+                                      </columns>
+                                    </TableView>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Medio Boleto">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <VBox prefHeight="122.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <children>
+                                        <GridPane minHeight="26.0">
+                                          <children>
+                                            <Label styleClass="label-datos" text="Solicitudes Pendientes:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                              <GridPane.margin>
+                                                <Insets left="4.0" fx:id="x31" />
+                                              </GridPane.margin>
+                                            </Label>
+                                            <Label fx:id="labelMBSolPendientes" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                              <GridPane.margin>
+                                                <Insets left="2.0" fx:id="x70" />
+                                              </GridPane.margin>
+                                            </Label>
+                                            <Label styleClass="label-datos" text="Credenciales Otorgadas:" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                              <GridPane.margin>
+                                                <Insets left="2.0" fx:id="x108" />
+                                              </GridPane.margin>
+                                            </Label>
+                                            <Label fx:id="labelMBSolOtorgadas" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                              <GridPane.margin>
+                                                <Insets left="2.0" fx:id="x109" />
+                                              </GridPane.margin>
+                                            </Label>
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                          <VBox.margin>
+                                            <Insets fx:id="x22" />
+                                          </VBox.margin>
+                                        </GridPane>
+                                        <TableView fx:id="tableMB" prefHeight="200.0" prefWidth="200.0">
+                                          <columns>
+                                            <TableColumn id="columnMBAlumno" prefWidth="75.0" text="Alumno" fx:id="columnMBAlumno" />
+                                            <TableColumn prefWidth="75.0" text="Documento" fx:id="columnMBDocumento" />
+                                            <TableColumn prefWidth="75.0" text="Estado" fx:id="columnMBEstado" />
+                                            <TableColumn prefWidth="75.0" text="Mensaje" fx:id="columnMBMensaje" />
+                                            <TableColumn prefWidth="75.0" text="Observaciones" fx:id="columnMBObservacion" />
+                                          </columns>
+                                          <VBox.margin>
+                                            <Insets top="6.0" />
+                                          </VBox.margin>
+                                        </TableView>
+                                      </children>
+                                    </VBox>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Conectividad">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <Accordion AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <expandedPane>
+                                        <TitledPane fx:id="x8" animated="false" text="Información General">
+                                          <content>
+                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <children>
+                                                    <GridPane gridLinesVisible="false" minHeight="80.0" prefHeight="-1.0" prefWidth="-1.0">
+                                                      <children>
+                                                        <Label styleClass="label-datos" text="PC Resolución:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                          <GridPane.margin>
+                                                            <Insets left="4.0" fx:id="x33" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                        <Label styleClass="label-datos" text="Línea telefónica:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                                          <GridPane.margin>
+                                                            <Insets left="4.0" fx:id="x104" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                        <Label styleClass="label-datos" text="PC. Observación:" underline="false" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                          <GridPane.margin>
+                                                            <Insets left="4.0" fx:id="x105" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                        <Label styleClass="label-datos" text="Fecha de Alta:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                                          <GridPane.margin>
+                                                            <Insets left="4.0" fx:id="x106" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                        <Label styleClass="label-datos" text="Ancho de Banda:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                                          <GridPane.margin>
+                                                            <Insets left="4.0" fx:id="x107" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                        <Label fx:id="labelPCResolucion" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                        <Label fx:id="labelPCObservacion" onMouseClicked="#onClickPCObs" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <Label fx:id="labelFechaAltaInternet" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                        <Label fx:id="labelAnchoBanda" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                        <Label fx:id="labelTelefonoInternet" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                        <Label styleClass="label-datos" text="PC Fecha Aprobación:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                        <Label styleClass="label-datos" text="Tiene Internet:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label styleClass="label-datos" text="Tipo de Enlace:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                        <Label styleClass="label-datos" text="Abono Internet:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                        <Label styleClass="label-datos" text="Func. en Sit. Adversas:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                        <Label fx:id="labelPCFechaAprobacion" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                        <Label fx:id="labelTieneInternet" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                        <Label fx:id="labelTipoEnlace" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                        <Label fx:id="labelAbonoInternet" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                        <Label fx:id="labelFuncSitAdversas" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                                        <Label styleClass="label-datos" text="Proveedor:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                                          <GridPane.margin>
+                                                            <Insets left="4.0" fx:id="x71" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                        <Label fx:id="labelObsInternet" onMouseClicked="#onClickInternetObs" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                                        <Label fx:id="labelProveedor" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                        <Label styleClass="label-datos" text="Observaciones:" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                          <GridPane.margin>
+                                                            <Insets fx:id="x5" />
+                                                          </GridPane.margin>
+                                                        </Label>
+                                                      </children>
+                                                      <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      </columnConstraints>
+                                                      <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      </rowConstraints>
+                                                      <VBox.margin>
+                                                        <Insets fx:id="x115" />
+                                                      </VBox.margin>
+                                                    </GridPane>
+                                                  </children>
+                                                </VBox>
+                                              </children>
+                                            </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                      </expandedPane>
+                                      <panes>
+                                        <fx:reference source="x8" />
+                                        <TitledPane animated="false" text="Gastos de Funcionamiento">
+                                          <content>
+                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <children>
+                                                <TableView fx:id="tableConectividad" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="Año" fx:id="columnGastosAnio" />
+                                                    <TableColumn prefWidth="75.0" text="Mes" fx:id="columnGastosMes" />
+                                                    <TableColumn prefWidth="75.0" text="Detalle" fx:id="columnGastosDetalle" />
+                                                    <TableColumn prefWidth="75.0" text="Importe ($)" fx:id="columnGastosImporte" />
+                                                  </columns>
+                                                </TableView>
+                                              </children>
+                                            </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Becas">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <GridPane gridLinesVisible="true" prefHeight="118.0" prefWidth="45.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="20.0">
+                                      <children>
+                                        <Label fx:id="labelSolicitadas1" styleClass="label-datos" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x130" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelSolicitadas2" styleClass="label-datos" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x131" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelOtorgadas" styleClass="label-datos" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                          <GridPane.margin>
+                                            <Insets left="4.0" fx:id="x132" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelSolicitadasValor1" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+                                          <GridPane.margin>
+                                            <Insets left="2.0" fx:id="x41" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelSolicitadasValor2" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                          <GridPane.margin>
+                                            <Insets left="2.0" fx:id="x39" />
+                                          </GridPane.margin>
+                                        </Label>
+                                        <Label fx:id="labelOtorgadasValor" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                          <GridPane.margin>
+                                            <Insets left="2.0" fx:id="x43" />
+                                          </GridPane.margin>
+                                        </Label>
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                      </children>
+                    </AnchorPane>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Alumnos">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-pane-segment">
+                  <children>
+                    <AnchorPane prefHeight="100.0" prefWidth="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <children>
+                        <GridPane minWidth="200.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <children>
+                            <Label styleClass="label-datos" text="Número de Documetno" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                            <TextField fx:id="textNroDocumentoAlumno" prefWidth="-1.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets left="10.0" right="10.0" fx:id="x36" />
+                              </GridPane.margin>
+                            </TextField>
+                            <Button fx:id="botonBuscarAlumno" minWidth="100.0" mnemonicParsing="false" onAction="#processBuscarAlumno" styleClass="small-button" text="Buscar" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                <Insets fx:id="x34" />
+                              </GridPane.margin>
+                            </Button>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                        <ListView fx:id="listAlumnos" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                      </children>
+                    </AnchorPane>
+                    <Accordion AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="130.0">
+                      <expandedPane>
+                        <TitledPane fx:id="x11" animated="false" text="Títulos y certificaciones legalizados en Sigae">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <children>
+                                    <TableView fx:id="tableTitulosRegistrados" prefHeight="-1.0" prefWidth="-1.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Establecimiento" fx:id="columnEstablecimiento" />
+                                        <TableColumn prefWidth="75.0" text="Plan" fx:id="columnPlan" />
+                                        <TableColumn prefWidth="75.0" text="Título" fx:id="columnTitulo" />
+                                        <TableColumn prefWidth="75.0" text="Validez Nacional" fx:id="columnValidezNacional" />
+                                        <TableColumn prefWidth="75.0" text="Tipo solicitud" fx:id="columnTipoSolicitud" />
+                                        <TableColumn prefWidth="75.0" text="Estado solicitud" fx:id="columnEstadoSolicitud" />
+                                        <TableColumn prefWidth="75.0" text="Fecha solicitud" fx:id="columnFechaSolicitud" />
+                                        <TableColumn prefWidth="75.0" text="Fecha solicitud real" fx:id="columnFechaSolicitudReal" />
+                                      </columns>
+                                      <VBox.margin>
+                                        <Insets fx:id="x66" />
+                                      </VBox.margin>
+                                    </TableView>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                      </expandedPane>
+                      <panes>
+                        <TitledPane fx:id="x14" animated="false" text="Datos personales">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                  <children>
+                                    <Label styleClass="label-datos" text="Documento:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x44" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoDocumento" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x45" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Apellido y Nombre:" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x46" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoApeNom" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x47" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x48" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoSexo" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x49" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x50" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoFeNac" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x51" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Nacionalidad:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x52" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoNacionalidad" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x53" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Departamento:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x54" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoDepartamento" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x55" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Localidad:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x56" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoLocalidad" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x57" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Código Postal:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x58" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoCodPostal" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x59" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Domicilio:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x60" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoDomicilio" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x61" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Teléfono:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x62" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoTelefono" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x63" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Correo electrónico:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x64" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAlumnoEmail" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x65" />
+                                      </GridPane.margin>
+                                    </Label>
+                                  </children>
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                </GridPane>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane fx:id="x12" animated="false" expanded="false" text="Trayectoria">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="tableTrayectoria" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn prefWidth="75.0" text="Cod. Juris." fx:id="columnCodJurisdiccional" />
+                                    <TableColumn prefWidth="75.0" text="Org. Carrera" fx:id="columnNroOrganismoCarrera" />
+                                    <TableColumn prefWidth="75.0" text="Org. Sección" fx:id="columnNroOrganismoSeccion" />
+                                    <TableColumn prefWidth="75.0" text="Id Carrera" fx:id="columnIdCarrera" />
+                                    <TableColumn prefWidth="75.0" text="Id Sección" fx:id="columnIdSeccion" />
+                                    <TableColumn prefWidth="75.0" text="Id Sección Previa" fx:id="columnIdSeccionPrevia" />
+                                    <TableColumn prefWidth="75.0" text="Ciclo Lectivo" fx:id="columnCicloLectivo" />
+                                    <TableColumn prefWidth="75.0" text="Sección" fx:id="columnSeccion" />
+                                    <TableColumn prefWidth="75.0" text="Fecha Insc. Carr." fx:id="columnFecInscripCarrera" />
+                                    <TableColumn prefWidth="75.0" text="Fecha Insc. Sección" fx:id="columnFecInscripSeccion" />
+                                    <TableColumn prefWidth="75.0" text="Fecha Baja Secc." fx:id="columnFecBajaSeccion" />
+                                    <TableColumn prefWidth="75.0" text="Mov. Entrada" fx:id="columnMovEntrada" />
+                                    <TableColumn id="columnMovUltimo" prefWidth="75.0" text="Mov. Último" fx:id="columnMovUltimo" />
+                                    <TableColumn id="columnFecBajaCarrera" prefWidth="75.0" text="Fecha Baja Carr." fx:id="columnFecBajaCarrera" />
+                                    <TableColumn id="columnFecSalida" prefWidth="75.0" text="Fecha Salida" fx:id="columnFecSalida" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <fx:reference source="x11" />
+                        <TitledPane fx:id="x15" animated="false" expanded="false" text="Títulos y certificaciones rechazadas">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="tableTitulosRechazados" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn prefWidth="75.0" text="Establecimiento" fx:id="columnEstablecimientoRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Plan" fx:id="columnPlanRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Título a imprimir" fx:id="columnTituloImprimirRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Validez Nacional" fx:id="columnValidezNacionalRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Estado solicitud" fx:id="columnEstadoSolicitudRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Fecha solicitud" fx:id="columnFechaSolicitudRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Fecha solicitud real" fx:id="columnFechaSolicitudRealRechazado" />
+                                    <TableColumn prefWidth="75.0" text="Fecha rechazo" fx:id="columnFechaRechazo" />
+                                    <TableColumn prefWidth="75.0" text="Motivo rechazo" fx:id="columnMotivoRechazo" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                      </panes>
+                    </Accordion>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Agentes">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-pane-segment">
+                  <children>
+                    <AnchorPane prefHeight="100.0" prefWidth="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <children>
+                        <GridPane minWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <children>
+                            <Label styleClass="label-datos" text="Número de Documento" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                            <TextField fx:id="textNroDocumentoAgente" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets left="10.0" right="10.0" fx:id="x40" />
+                              </GridPane.margin>
+                            </TextField>
+                            <Button fx:id="botonBuscarAgente" minWidth="100.0" mnemonicParsing="false" onAction="#processBuscarAgente" styleClass="small-button" text="Buscar" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                <Insets fx:id="x35" />
+                              </GridPane.margin>
+                            </Button>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                        <ListView fx:id="listAgentes" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                      </children>
+                    </AnchorPane>
+                    <Accordion AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="130.0">
+                      <expandedPane>
+                        <TitledPane fx:id="x7" animated="false" expanded="true" styleClass="first-titled-pane" text="Datos personales">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                  <children>
+                                    <Label styleClass="label-datos" text="Documento:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x73" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x74" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Provincia:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x75" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Domicilio:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x76" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x77" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Correo Electrónico:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x78" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Fecha Actualización:" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x79" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Apellido y Nombre:" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x80" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Fecha Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x81" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Localidad:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x82" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Celular:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x83" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Código Postal:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x84" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label styleClass="label-datos" text="Contacto Alternativo:" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x85" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteDocumento" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x86" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteSexo" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x87" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteProvincia" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x88" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteDomicilio" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x89" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteTelefono" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x90" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteEmail" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x91" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteFeActu" styleClass="label-datos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x92" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteApeNom" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x93" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteFeNac" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x94" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteLocalidad" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x95" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteCodPostal" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x96" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteCelular" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x97" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="labelAgenteContactoAlt" styleClass="label-datos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                      <GridPane.margin>
+                                        <Insets left="4.0" fx:id="x98" />
+                                      </GridPane.margin>
+                                    </Label>
+                                  </children>
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                </GridPane>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                      </expandedPane>
+                      <panes>
+                        <fx:reference source="x7" />
+                        <TitledPane animated="false" text="Títulos registrados">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="tableTitulosRegistradosAgente" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn id="columnEstablecimientoAgente" prefWidth="75.0" text="Establecimiento" fx:id="columnEstablecimientoAgente" />
+                                    <TableColumn id="columnPlanAgente" prefWidth="75.0" text="Plan" fx:id="columnPlanAgente" />
+                                    <TableColumn id="columnTituloAgente" prefWidth="75.0" text="Título" fx:id="columnTituloAgente" />
+                                    <TableColumn id="columnRegistroAgente" prefWidth="75.0" text="Registro" fx:id="columnRegistroAgente" />
+                                    <TableColumn id="columnDiplomaAgente" prefWidth="75.0" text="Diploma" fx:id="columnDiplomaAgente" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane fx:id="x13" animated="false" text="Cargos del agente">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="tableCargosAgente" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn id="columnEstablecimientoCargo" prefWidth="75.0" text="Establecimiento" fx:id="columnEstablecimientoCargo" />
+                                    <TableColumn id="columnTareaCargo" prefWidth="75.0" text="Tarea" fx:id="columnTareaCargo" />
+                                    <TableColumn id="columnIdCargo" prefWidth="75.0" text="Id Cargo" fx:id="columnIdCargo" />
+                                    <TableColumn id="columnSitRevistaCargo" prefWidth="75.0" text="Sit. Revista" fx:id="columnSitRevistaCargo" />
+                                    <TableColumn id="columnFeTomaPosecionCargo" prefWidth="75.0" text="Fe. Toma Posesión" fx:id="columnFeTomaPosecionCargo" />
+                                    <TableColumn id="columnFeCeseCargo" prefWidth="75.0" text="Fecha Cese" fx:id="columnFeCeseCargo" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane fx:id="x16" animated="false" expanded="false" text="Horas cátedra del agente">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="tableHorasCatAgente" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn id="columnEstablecimientoHoras" prefWidth="75.0" text="Establecimiento" fx:id="columnEstablecimientoHoras" />
+                                    <TableColumn id="columnTerminalidadHoras" prefWidth="75.0" text="Terminalidad" fx:id="columnTerminalidadHoras" />
+                                    <TableColumn id="columnCurDivTurHoras" prefWidth="75.0" text="Cur - Div - Tur" fx:id="columnCurDivTurHoras" />
+                                    <TableColumn id="columnMateriaHoras" prefWidth="75.0" text="Materia" fx:id="columnMateriaHoras" />
+                                    <TableColumn id="columnHoras" prefWidth="75.0" text="Horas" fx:id="columnHoras" />
+                                    <TableColumn id="columnIdCargoHoras" prefWidth="75.0" text="Id Cargo" fx:id="columnIdCargoHoras" />
+                                    <TableColumn id="columnSitRevistaHoras" prefWidth="75.0" text="Sit. Revista" fx:id="columnSitRevistaHoras" />
+                                    <TableColumn id="columnFeTomaPosecionHoras" prefWidth="75.0" text="Fe. Toma Pos." fx:id="columnFeTomaPosecionHoras" />
+                                    <TableColumn id="columnFeCeseHoras" prefWidth="75.0" text="Fecha Cese" fx:id="columnFeCeseHoras" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </TitledPane>
+                      </panes>
+                    </Accordion>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Llamados">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-pane-segment">
+                  <children>
+                    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="6.0">
+                      <children>
+                        <Label styleClass="label-titulo" text="Registro de llamados" />
+                        <Label styleClass="label-datos" text="Seleccione el origen del llamado">
+                          <VBox.margin>
+                            <Insets top="10.0" fx:id="x18" />
+                          </VBox.margin>
+                        </Label>
+                        <GridPane>
+                          <children>
+                            <Button fx:id="llamadoEstablecimiento" minWidth="120.0" mnemonicParsing="false" onAction="#processLlamadaDeEscuela" styleClass="small-button" text="Establecimiento" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <GridPane.margin>
+                                <Insets left="4.0" right="4.0" fx:id="x17" />
+                              </GridPane.margin>
+                            </Button>
+                            <Button fx:id="llamadoAlumno" minWidth="120.0" mnemonicParsing="false" onAction="#processLlamadaDeAlumno" styleClass="small-button" text="Alumno" GridPane.columnIndex="1" GridPane.margin="$x17" GridPane.rowIndex="0" />
+                            <Button fx:id="llamadoAgente" minWidth="120.0" mnemonicParsing="false" onAction="#processLlamadaDeAgente" styleClass="small-button" text="Agente" GridPane.columnIndex="2" GridPane.margin="$x17" GridPane.rowIndex="0" />
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                          <VBox.margin>
+                            <Insets left="10.0" right="200.0" top="10.0" />
+                          </VBox.margin>
+                        </GridPane>
+                        <TextField fx:id="textIdConsultor" maxWidth="300.0" prefWidth="-1.0">
+                          <VBox.margin>
+                            <Insets left="20.0" right="450.0" top="10.0" />
+                          </VBox.margin>
+                        </TextField>
+                        <Label styleClass="label-datos" text="Ultimas consultas realizadas" VBox.margin="$x18" />
+                        <TabPane prefHeight="180.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="En curso">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <TableView fx:id="tableConsultaEnCurso" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Id Consulta" fx:id="columnIdConsultaCurso" />
+                                        <TableColumn prefWidth="75.0" text="Tema" fx:id="columnTemaEnCurso" />
+                                        <TableColumn prefWidth="75.0" text="Observación" fx:id="columnObservacionEnCurso" />
+                                        <TableColumn prefWidth="75.0" text="Fecha Alta" fx:id="columnFeAltaEnCurso" />
+                                        <TableColumn prefWidth="75.0" text="Operador" fx:id="columnOperadorEnCurso" />
+                                      </columns>
+                                    </TableView>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Finalizadas">
+                              <content>
+                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <children>
+                                    <TableView fx:id="tableConsultaFinalizado" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Id Consulta" fx:id="columnIdConsultaFinalizado" />
+                                        <TableColumn prefWidth="75.0" text="Tema" fx:id="columnTemaFinalizado" />
+                                        <TableColumn prefWidth="75.0" text="Observación" fx:id="columnObservacionFinalizado" />
+                                        <TableColumn prefWidth="75.0" text="Fecha Baja" fx:id="columnFeBajaFinalizado" />
+                                        <TableColumn prefWidth="75.0" text="Operador" fx:id="columnOperadorFinalizado" />
+                                        <TableColumn prefWidth="75.0" text="Finalizado por" fx:id="columnFinalizadoPorFinalizado" />
+                                      </columns>
+                                    </TableView>
+                                  </children>
+                                </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                          <VBox.margin>
+                            <Insets top="2.0" />
+                          </VBox.margin>
+                        </TabPane>
+                        <Label styleClass="label-datos" text="Nueva consulta" VBox.margin="$x18" />
+                        <GridPane VBox.margin="$x18">
+                          <children>
+                            <TextField fx:id="textObservacionLlamado" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                              <GridPane.margin>
+                                <Insets left="2.0" right="2.0" fx:id="x110" />
+                              </GridPane.margin>
+                            </TextField>
+                            <ComboBox fx:id="selectEstadoLlamado" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                              <GridPane.margin>
+                                <Insets fx:id="x113" />
+                              </GridPane.margin>
+                            </ComboBox>
+                            <ComboBox fx:id="selectTemaLlamado" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                              <GridPane.margin>
+                                <Insets left="2.0" right="2.0" fx:id="x112" />
+                              </GridPane.margin>
+                            </ComboBox>
+                            <Button fx:id="buttonGuardarConsulta" minWidth="120.0" mnemonicParsing="false" onAction="#processGuardarConsulta" styleClass="small-button" text="Guardar" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                              <GridPane.margin>
+                                <Insets left="30.0" right="2.0" />
+                              </GridPane.margin>
+                            </Button>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </VBox>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@Style.css" />
+  </stylesheets>
+</AnchorPane>
