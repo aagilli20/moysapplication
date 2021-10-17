@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MoysApplication.jnlp">
+  <information>
+    <title>MoysApplication</title>
+    <vendor>Anonimo</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="MoysApplication.jar" size="166780" download="eager" />
+    <jar href="lib\asterisk-java-1.0.0.M3.jar" size="519577" download="eager" />
+    <jar href="lib\jfxmessagebox-1.1.0.jar" size="37630" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="860410" download="eager" />
+    <jar href="lib\poi-3.9-20121203.jar" size="2003969" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="MoysApplication" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="moysapplication.MoysApplication"  name="MoysApplication" />
+  <update check="always"/>
+</jnlp>

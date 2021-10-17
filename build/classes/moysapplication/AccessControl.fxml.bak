@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" minWidth="800.0" prefHeight="600.0" prefWidth="600.0" styleClass="background" xmlns:fx="http://javafx.com/fxml" fx:controller="moysapplication.AccessControlController">
+  <children>
+    <AnchorPane prefHeight="370.0" prefWidth="800.0" styleClass="top-segment" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="5.0">
+          <children>
+            <ImageView fitHeight="66.0" fitWidth="300.0" pickOnBounds="true" AnchorPane.topAnchor="5.0">
+              <Image url="@logo.png" preserveRatio="false" smooth="false" />
+            </ImageView>
+            <Label fx:id="errorMessage" prefHeight="58.0" prefWidth="587.0" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+              <children>
+                <AnchorPane prefHeight="200.0" prefWidth="637.0">
+                  <children>
+                    <PasswordField fx:id="password" layoutY="140.0" prefWidth="597.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                    <TextField fx:id="userId" layoutY="54.0" prefWidth="597.0" styleClass="text-lowercase" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                    <Label layoutY="107.0" text="Contraseña" AnchorPane.leftAnchor="20.0" />
+                    <Label layoutY="26.0" text="Usuario" AnchorPane.leftAnchor="20.0" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </VBox>
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+    <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefWidth="245.0" text="Ingresar" AnchorPane.bottomAnchor="135.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+    <Button fx:id="ExitButton" onAction="#handleExitButtonAction" prefWidth="245.0" text="Salir" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+  </children>
+  <stylesheets>
+    <URL value="@Style.css" />
+  </stylesheets>
+</AnchorPane>
