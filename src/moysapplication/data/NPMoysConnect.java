@@ -28,8 +28,8 @@ public class NPMoysConnect {
     private final mySqlConnect auxConnect;
     
     public NPMoysConnect() {
-        // auxConnect = new mySqlConnect("jdbc:mysql://localhost:3306/", "base_sgnp", "root", "");
-        auxConnect = new mySqlConnect("jdbc:mysql://localhost", "base_sgnp", "root", "");
+        auxConnect = new mySqlConnect("jdbc:mysql://localhost:3306/", "base_sgnp", "root", "");
+        // auxConnect = new mySqlConnect("jdbc:mysql://localhost", "web_store", "root", "");
     }
     
     private Connection getConnect(){

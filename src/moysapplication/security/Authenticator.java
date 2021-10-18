@@ -7,6 +7,7 @@ package moysapplication.security;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import moysapplication.data.NPMoysConnect;
 // import moysapplication.data.NPMoysConnect;
 import moysapplication.model.User;
 
@@ -23,7 +24,7 @@ public class Authenticator {
      */
     
     public static User validate(String user, String password) throws NoSuchAlgorithmException, SQLException{
-        /*
+        
         NPMoysConnect dbNPMoys = new NPMoysConnect();
         User dbUser = dbNPMoys.getUser(user);
         // si userType es -1 ya sabemos que hay error de usuario, por lo tanto retorna
@@ -37,8 +38,8 @@ public class Authenticator {
                 return dbUser;
             }
         }
-        */
-        User dbUser = new User("agilli", 1, "sdfsa", "operador");
+        
+        // User dbUser = new User("agilli", 1, "sdfsa", "operador");
         return dbUser;
     }
     
